@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sparkle</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600|Raleway:400,500,600,700|Roboto&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+  </head>
+  <body>
+    <!-- Sprites -->
+    <svg style="display: none;">
+      <symbol id="facebook" viewBox="0 0 97.75 97.75">
+        <g>
+          <path d="M48.875,0C21.882,0,0,21.882,0,48.875S21.882,97.75,48.875,97.75S97.75,75.868,97.75,48.875S75.868,0,48.875,0z
+             M67.521,24.89l-6.76,0.003c-5.301,0-6.326,2.519-6.326,6.215v8.15h12.641L67.07,52.023H54.436v32.758H41.251V52.023H30.229V39.258
+            h11.022v-9.414c0-10.925,6.675-16.875,16.42-16.875l9.851,0.015V24.89L67.521,24.89z"/>
+        </g>
+      </symbol>
+      <symbol id="twitter" viewBox="0 0 512 512">
+        <g>
+          <path d="m256 0c-141.363281 0-256 114.636719-256 256s114.636719 256 256 256 256-114.636719 256-256-114.636719-256-256-256zm116.886719 199.601562c.113281 2.519532.167969 5.050782.167969 7.59375 0 77.644532-59.101563 167.179688-167.183594 167.183594h.003906-.003906c-33.183594 0-64.0625-9.726562-90.066406-26.394531 4.597656.542969 9.277343.8125 14.015624.8125 27.53125 0 52.867188-9.390625 72.980469-25.152344-25.722656-.476562-47.410156-17.464843-54.894531-40.8125 3.582031.6875 7.265625 1.0625 11.042969 1.0625 5.363281 0 10.558593-.722656 15.496093-2.070312-26.886718-5.382813-47.140624-29.144531-47.140624-57.597657 0-.265624 0-.503906.007812-.75 7.917969 4.402344 16.972656 7.050782 26.613281 7.347657-15.777343-10.527344-26.148437-28.523438-26.148437-48.910157 0-10.765624 2.910156-20.851562 7.957031-29.535156 28.976563 35.554688 72.28125 58.9375 121.117187 61.394532-1.007812-4.304688-1.527343-8.789063-1.527343-13.398438 0-32.4375 26.316406-58.753906 58.765625-58.753906 16.902344 0 32.167968 7.144531 42.890625 18.566406 13.386719-2.640625 25.957031-7.53125 37.3125-14.261719-4.394531 13.714844-13.707031 25.222657-25.839844 32.5 11.886719-1.421875 23.214844-4.574219 33.742187-9.253906-7.863281 11.785156-17.835937 22.136719-29.308593 30.429687zm0 0"/>
+        </g>
+      </symbol>
+      <symbol id="dribble" viewBox="0 0 512 512">
+        <g>
+          <path d="M175.872,197.8c24.598-4.801,48.6-11.4,71.398-18.6c-30.298-55.501-67.798-105.601-111.899-147.9   C70.572,66.099,21.27,128.2,5.371,202.299C53.072,211.899,111.972,210.7,175.872,197.8z"/>
+          <path d="M418.571,60.099l-4.2,16.5c-6.599,26.4-62.399,64.2-135.599,91.501l-3.301,1.199c-29.7-56.1-67.2-107.1-110.999-151.199   C192.672,7,223.571,0,255.671,0c57.299,0,110.7,20.2,153.3,52.299C412.27,54.699,415.572,57.1,418.571,60.099z"/>
+          <path d="M287.171,268.299c-7.8-21.299-16.5-41.999-26.1-62.1c-25.199,8.401-51.899,15.601-79.2,21   c-29.7,6-68.399,11.4-109.199,11.4c-23.401,0-48.401-1.8-72.1-6.301c-0.601,7.8,0.099,15.601,0.099,23.701   c0,78.9,36,149.399,92.1,196.199c0.3-1.8,0.601-3.6,0.899-5.4C105.071,377.8,184.872,304.9,287.171,268.299z"/>
+          <path d="M297.071,296.499c20.4,64.2,31.8,133.9,32.999,204.401c-23.399,7.2-48.6,11.1-74.399,11.1   c-48.3,0-93.6-14.5-132.001-37.901c-1.5-7.2-1.5-14.7-0.298-22.5C132.672,394.9,207.071,329.2,297.071,296.499z"/>
+          <path d="M508.97,292.299c-12.599,87.902-70.899,161.4-149.499,196.501c-2.1-69.6-14.101-137.401-34.2-201.301   C392.471,268.9,456.172,271,508.97,292.299z"/>
+          <path d="M511.671,256v5.4c-57.299-21.301-125.2-22.2-196-2.1c-7.8-21.599-16.8-42.599-26.4-62.999   c49.311-18.515,141.337-61.127,154.2-112.5C485.172,129.099,511.671,189.699,511.671,256z"/>
+        </g>
+      </symbol>
+      <symbol id="g-plus" viewBox="0 0 24 24">
+        <g>
+          <path d="m12 24c6.624 0 12-5.376 12-12s-5.376-12-12-12-12 5.376-12 12 5.376 12 12 12zm4.283-12.857h1.718v-1.717h1.718v1.718h1.703v1.718h-1.703v1.718h-1.718v-1.718h-1.718zm-7.704-5.144c1.514 0 2.908.533 4.017 1.563l-1.626 1.578c-.639-.625-1.514-.924-2.391-.924-2.076 0-3.736 1.718-3.736 3.779s1.655 3.779 3.736 3.779c1.577 0 3.14-.924 3.392-2.579h-3.392v-2.061h5.657c.063.329.092.658.092 1.001 0 3.426-2.299 5.864-5.749 5.864v.001c-3.329 0-6.001-2.686-6.001-6.001s2.672-6 6.001-6z"/>
+        </g>
+      </symbol>
+    </svg>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container h-100">
+        <div class="header__inner position-relative">
+          <div class="row">
+            <div class="col">
+              <nav class="navbar navbar-dark">
+                <a href="#" class="navbar-brand">
+                  <img class="header__logo" src="img/white-logo.png" alt="site logo">
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#collapsingNavbar" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsingNavbar" style="background-color: #1a1a1a; padding: 30px 0;">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#services">Our services</a>
+                    <a class="nav-item nav-link" href="#portfolio">Our portfolio</a>
+                    <a class="nav-item nav-link" href="#team">Our team</a>
+                  </div>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="row position-absolute">
+            <div class="col-md-10 m-auto h-100">
+              <div class="header__content d-flex flex-column align-items-center justify-content-center h-100 position-relative">
+                <h1 class="header__title">Design comes to those who wait</h1>
+                <p class="header__subtitle">
+                  Hello This is Onepage Multipurpose Template.
+                </p>
+                <button class="btn btn--yellow">Learn more</button>
+                <a href="#intro" class="scroll">
+                  <img src="img/icons/bottom-arrow.png" alt="scroll down">
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--/ Header  -->
+
+    <main>
+      <!-- Intro -->
+      <section class="intro" id="intro">
+        <div class="container">
+          <div class="intro__inner">
+            <div class="row">
+              <div class="col col-lg-6 d-flex flex-column align-items-center m-auto">
+                <img src="img/icons/mountains.png" alt="mountain" class="intro__img">
+                <p class="intro__text section--info">
+                  Donec rutrum congue leo eget malesuada. Curabitur non nulla sit
+                  amet nisl tempus convallis quis ac lectus. Proin eget tortor
+                  risus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar
+                  a. Curabitur non nulla sit amet nisl tempus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Intro  -->
+
+      <!-- Services -->
+      <section class="services" id="services">
+        <div class="container">
+          <div class="services__inner">
+            <div class="row">
+              <div class="col col-sm-10 col-lg-8 d-flex flex-column align-items-center m-auto">
+                <img src="img/icons/axes.png" alt="axes" class="services__img">
+                <h2 class="services__title section-title">Our services</h2>
+                <p class="services__text section--info">
+                  Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                  amet dui. Quisque velit nisi, pretium ut lacinia in, elementum
+                  id enim. Donec sollicitudin molestie malesuada
+                </p>
+              </div>
+            </div>
+            <div class="row d-md-flex justify-content-sm-around">
+              <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="service graphic-design">
+                  <div class="service__card">
+                    <img class="service__img" src="img/icons/printer.png" alt="printer">
+                    <h3 class="service__title">Graphic <span>design</span></h3>
+                    <p class="service__text">
+                      Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                      amet dui. Quisque velit nisi, pretium ut lacinia in,
+                      elementum id enim. Donec sollicitudin
+                    </p>
+                  </div>
+                  <div class="skills">
+                    <ul class="skills__list">
+                      <li class="skills__item">Ps</li>
+                      <li class="skills__item">Ai</li>
+                      <li class="skills__item">Id</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="service web-design">
+                  <div class="service__card">
+                    <img class="service__img" src="img/icons/roller.png" alt="roller">
+                    <h3 class="service__title">Web<span>design</span></h3>
+                    <p class="service__text">
+                      Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                      amet dui. Quisque velit nisi, pretium ut lacinia in,
+                      elementum id enim. Donec sollicitudin
+                    </p>
+                  </div>
+                  <div class="skills">
+                    <ul class="skills__list">
+                      <li class="skills__item">Ui</li>
+                      <li class="skills__item">Ux</li>
+                      <li class="skills__item">Responsive</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="service web-development">
+                  <div class="service__card">
+                    <img class="service__img" src="img/icons/monitor.png" alt="screen">
+                    <h3 class="service__title">Web<span>development</span></h3>
+                    <p class="service__text">
+                      Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                      amet dui. Quisque velit nisi, pretium ut lacinia in,
+                      elementum id enim. Donec sollicitudin
+                    </p>
+                  </div>
+                  <div class="skills">
+                    <ul class="skills__list">
+                      <li class="skills__item">Html</li>
+                      <li class="skills__item">Css</li>
+                      <li class="skills__item">Js</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="service app-development">
+                  <div class="service__card">
+                    <img class="service__img" src="img/icons/phone.png" alt="phone">
+                    <h3 class="service__title">App<span>development</span></h3>
+                    <p class="service__text">
+                      Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                      amet dui. Quisque velit nisi, pretium ut lacinia in,
+                      elementum id enim. Donec sollicitudin
+                    </p>
+                  </div>
+                  <div class="skills">
+                    <ul class="skills__list">
+                      <li class="skills__item">C++</li>
+                      <li class="skills__item">Java</li>
+                      <li class="skills__item">Swift</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Services  -->
+
+      <!-- Statistics -->
+      <section class="statistics">
+        <div class="container">
+          <div class="statistics__inner">
+            <div class="row d-flex justify-content-center">
+              <div class="col-sm-5 col-md-3">
+                <div class="statistics__item">
+                  <div class="statistics__value">694</div>
+                  <h4 class="statistics__title">Completed designs</h4>
+                </div>
+              </div>
+
+              <div class="col-sm-5 col-md-3">
+                <div class="statistics__item">
+                  <div class="statistics__value">324</div>
+                  <h4 class="statistics__title">Pages created</h4>
+                </div>
+              </div>
+
+              <div class="col-sm-5 col-md-3">
+                <div class="statistics__item">
+                  <div class="statistics__value">134</div>
+                  <h4 class="statistics__title">Pages coded</h4>
+                </div>
+              </div>
+
+              <div class="col-sm-5 col-md-3">
+                <div class="statistics__item">
+                  <div class="statistics__value">27</div>
+                  <h4 class="statistics__title">Apps finished</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Statistics  -->
+
+      <!-- Portfolio -->
+      <section class="portfolio" id="portfolio">
+        <div class="container">
+          <div class="portfolio__inner">
+            <div class="row">
+              <div class="col col-sm-10 col-lg-8 d-flex flex-column align-items-center justify-content-center m-auto">
+                <img src="img/icons/axes.png" alt="axes" class="portfolio__img section--icon">
+                <h2 class="portfolio__title section-title">Our portfolio</h2>
+                <p class="portfolio__text section--info">
+                  Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                  amet dui. Quisque velit nisi, pretium ut lacinia in, elementum
+                  id enim. Donec sollicitudin molestie malesuada
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-5 d-flex align-items-center">
+                <ul class="categories d-flex justify-content-between justify-content-sm-around">
+                  <li class="categories__item">
+                    <a href="#graphic" class="categories__link">Graphic</a>
+                  </li>
+                  <li class="categories__item">
+                    <a href="#web" class="categories__link">Web</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="col-sm-2 d-flex justify-content-center">
+                <img class="categories__logo" src="img/logo.png" alt="logo">
+              </div>
+              <div class="col-sm-5 d-flex align-items-center">
+                <ul class="categories d-flex justify-content-between justify-content-sm-around flex-row-reverse flex-sm-row">
+                  <li class="categories__item">
+                    <a href="#" class="categories__link">Development</a>
+                  </li>
+                  <li class="categories__item">
+                    <a href="#" class="categories__link">App</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio__wrapper">
+          <div id="graphic" class="portfolio__content d-flex flex-wrap">
+            <div class="portfolio__item" tabindex="0">
+              <img class="img-100" src="img/portfolio/graphic/01.jpg" alt="portfolio image">
+              <div class="work-info">
+                <div>
+                  <h5 class="work-info__title">Doe branding</h5>
+                  <p class="work-info__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+                    dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim...
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio__item" tabindex="0">
+              <img src="img/portfolio/graphic/02.jpg" alt="portfolio image">
+              <div class="work-info">
+                <div>
+                  <h5 class="work-info__title">Doe branding</h5>
+                  <p class="work-info__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+                    dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim...
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio__item" tabindex="0">
+              <img src="img/portfolio/graphic/03.jpg" alt="portfolio image">
+              <div class="work-info">
+                <div>
+                  <h5 class="work-info__title">Doe branding</h5>
+                  <p class="work-info__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+                    dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim...
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio__item" tabindex="0">
+              <img class="img-100" src="img/portfolio/graphic/04.jpg" alt="portfolio image">
+              <div class="work-info">
+                <div>
+                  <h5 class="work-info__title">Doe branding</h5>
+                  <p class="work-info__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+                    dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim...
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio__item" tabindex="0">
+              <img src="img/portfolio/graphic/05.jpg" alt="portfolio image">
+              <div class="work-info">
+                <div>
+                  <h5 class="work-info__title">Doe branding</h5>
+                  <p class="work-info__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+                    dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim...
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio__item" tabindex="0">
+              <img src="img/portfolio/graphic/06.jpg" alt="portfolio image">
+              <div class="work-info">
+                <div>
+                  <h5 class="work-info__title">Doe branding</h5>
+                  <p class="work-info__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit amet
+                    dui. Quisque velit nisi, pretium ut lacinia in, elementum id enim...
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex justify-content-center">
+              <button class="btn btn--yellow">Loke what you see?</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Portfolio  -->
+
+      <!-- Video -->
+      <section class="video">
+        <div class="container">
+          <div class="row">
+            <div class="col d-flex justify-content-center">
+              <button class="btn btn--stroke">View our video</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Video  -->
+
+      <!-- Team -->
+      <section class="team" id="team">
+        <div class="container">
+          <div class="row">
+            <div class="col col-sm-10 col-lg-8 d-flex flex-column align-items-center justify-content-center m-auto">
+              <img src="img/icons/axes.png" alt="axes" class="team__img section--icon">
+              <h2 class="team__title section-title">Our team</h2>
+              <p class="team__text section--info">
+                Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                amet dui. Quisque velit nisi, pretium ut lacinia in, elementum
+                id enim. Donec sollicitudin molestie malesuada
+              </p>
+            </div>
+          </div>
+          <div class="team__inner">
+            <div class="row d-flex justify-content-center">
+              <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="person">
+                  <div class="person__card d-flex align-items-end">
+                    <img class="person__img" src="img/team/01.jpg" alt="person">
+                    <h6 class="person__name">John Doe</h6>
+                  </div>
+                  <div class="person__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                    amet dui. Quisque velit nisi, pretium ut lacinia in, elementum
+                    id enim. Donec sollicitudin
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="person">
+                  <div class="person__card d-flex align-items-end">
+                    <img class="person__img" src="img/team/02.jpg" alt="person">
+                    <h6 class="person__name">John Doe</h6>
+                  </div>
+                  <div class="person__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                    amet dui. Quisque velit nisi, pretium ut lacinia in, elementum
+                    id enim. Donec sollicitudin
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="person">
+                  <div class="person__card d-flex align-items-end">
+                    <img class="person__img" src="img/team/03.jpg" alt="person">
+                    <h6 class="person__name">John Doe</h6>
+                  </div>
+                  <div class="person__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                    amet dui. Quisque velit nisi, pretium ut lacinia in, elementum
+                    id enim. Donec sollicitudin
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-sm-6 col-md-5 col-lg-4 col-xl-3">
+                <div class="person">
+                  <div class="person__card d-flex align-items-end">
+                    <img class="person__img" src="img/team/04.jpg" alt="person">
+                    <h6 class="person__name">John Doe</h6>
+                  </div>
+                  <div class="person__text">
+                    Vestibulum ac diam sit amet quam vehicula elementum sed sit
+                    amet dui. Quisque velit nisi, pretium ut lacinia in, elementum
+                    id enim. Donec sollicitudin
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Team  -->
+
+      <!-- Quotes -->
+      <section class="quotes" id="quotes">
+        <div class="container">
+          <div class="quotes__inner">
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="quotes__block d-flex flex-column justify-content-center align-items-center">
+                  <p class="quotes__text">
+                    Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Proin eget tortor risus.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Curabitur non nulla sit amet nisl tempus convallis quis ac
+                    lectus. Vivamus magna justo, lacinia eget consectetur sed,
+                    convallis at tellus. Curabitur non nulla sit amet nisl tempus
+                    convallis quis ac lectus. Nulla quis lorem ut libero malesuada
+                    feugiat.
+                  </p>
+                  <p class="quotes__text">
+                    Pellentesque in ipsum id orci porta dapibus. Lorem ipsum dolor
+                    sit amet, consectetur adipiscing elit. Proin eget tortor
+                    risus. Lorem ipsum dolor sit amet, consectetuquis ac lectus.
+                    Nulla quis lorem ut libero malesuada feugiat.
+                  </p>
+                </div>
+                <div class="quote d-flex flex-column align-items-center justify-content-center">
+                  <p class="quote__text">
+                    “Proin eget tortor risus. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Curabisl tempus convallis<span>justo,
+                    lacinia eget malesuada feugiat”</span>
+                  </p>
+                  <span class="quote__author author--left-mr align-self-start">John Doe SEO</span>
+                </div>
+              </div>
+              <div class="col-lg-6 d-flex flex-column">
+                <div class="quote d-flex flex-column align-items-center justify-content-center order-1 order-lg-0">
+                  <p class="quote__text">
+                    “Proin eget tortor risus. Lorem ipsum dolor sit amet,
+                    consectetur adipiscing elit. Curabisl tempus convallis<span>justo,
+                    lacinia eget malesuada feugiat”</span>
+                  </p>
+                  <span class="quote__author author--right-mr align-self-end">John Doe SEO</span>
+                </div>
+                <div class="quotes__block order-0 order-lg-1 table--img">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--/ Quotes -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="row">
+            <div class="col-12 col-md-4 col-lg-4">
+              <div class="footer__content">
+                <img class="footer__logo" src="img/white-logo.png" alt="logo">
+                <p class="footer__text footer__text--margin-bottom">
+                  Pellentesque in ipsum id orci porta dapibus. Vivamus magna
+                  justo, lacinia eget consectetur sed, convallis at tellus.
+                  Pellentesque in ipsum id orci porta dapibus.
+                </p>
+                <p class="footer__text ">
+                  Created by <span class="footer__text--yellow">Graphberry</span>,Belgrade,Serbia
+                  <span class="copyright">© 2017 - Sparkle.Inc</span>
+                </p>
+              </div>
+            </div>
+            <div class="col-5 col-sm-3 col-md-2 col-lg-2">
+              <ul class="footer__list">
+                <li class="footer__title">Links</li>
+                <li>
+                  <a href="#" class="footer__link">Home</a>
+                </li>
+                <li>
+                  <a href="#" class="footer__link">Our Services</a>
+                </li>
+                <li>
+                  <a href="#" class="footer__link">Portfolio</a>
+                </li>
+                <li>
+                  <a href="#" class="footer__link">Testimonials</a>
+                </li>
+                <li>
+                  <a href="#" class="footer__link">Support</a>
+                </li>
+                <li>
+                  <a href="#" class="footer__link">Terms and Conditions</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-5 col-sm-3 col-md-2 col-lg-2">
+              <ul class="footer__list">
+                <li class="footer__title">About us</li>
+                <li>
+                  <a href="#" class="footer__link">Sign in</a>
+                </li>
+                <li>
+                  <a href="#" class="footer__link">Register</a>
+                </li>
+                <li>
+                  <a href="#" class="footer__link">About us</a>
+                </li>
+                <li>
+                  <a href="#" class="footer__link">Blog</a>
+                </li>
+                <li>
+                  <a href="#" class="footer__link">Contact us</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-10 col-sm-6 col-md-4 col-lg-4 d-flex flex-column justify-content-lg-between">
+              <ul class="footer__list contact__list">
+                <li class="footer__title">Contact Us</li>
+                <li>
+                  <p class="footer__text">
+                    Get in touch with us via mail phone.We are waiting for
+                    your call or message
+                  </p>
+                </li>
+              </ul>
+              <div class="email">
+                graphberry@gmail.com
+              </div>
+              <ul class="social">
+                <li class="social__item">
+                  <a href="#" class="social__link">
+                    <svg class="social__icon">
+                      <use xlink:href="#facebook"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="social__item">
+                  <a href="#" class="social__link">
+                    <svg class="social__icon">
+                      <use xlink:href="#twitter"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="social__item">
+                  <a href="#" class="social__link">
+                    <svg class="social__icon">
+                      <use xlink:href="#g-plus"></use>
+                    </svg>
+                  </a>
+                </li>
+                <li class="social__item">
+                  <a href="#" class="social__link">
+                    <svg class="social__icon">
+                      <use xlink:href="#dribble"></use>
+                    </svg>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!--/ Footer  -->
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Main JS -->
+    <script src="js/main.js"></script>
+    <!-- Livereload -->
+    <script>
+      document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+  </body>
+</html>
